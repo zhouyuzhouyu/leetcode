@@ -33,9 +33,34 @@
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
         listAll = [[] for i in range(numRows)]
+        n = len(s)
+        x = 0
+        y = 0
+        isInCenter = False
+        for i in range(n):
+            self.saveIn(listAll,x,y,s[i])
+            if not isInCenter:
+                if y >= numRows-1:
+                    y -= 1
+                    x += 1
+                    isInCenter = True
+                else:
+                    y += 1
+            else:
+                if y <= 0:
+                    isInCenter = False
+                    y += 1
+                else:
+                    x += 1
+                    y -= 1
 
-        print(listAll)
+        strR = ""
+        for i in listAll:
+            strR += ''.join(i)
 
+        return strR
 
+    def saveIn(self,listAll,x,y,s):
+        listAll[y].append(s)
 
 print(Solution().convert('LEETCODEISHIRING',3))

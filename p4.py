@@ -30,5 +30,5 @@ class Solution:
         nums1.sort()
         if len(nums1)%2 == 0:
             return (nums1[len(nums1)//2-1] + nums1[len(nums1)//2])/2.0
-        else
+        else:
             return nums1[len(nums1)//2]

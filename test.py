@@ -1,10 +1,4 @@
-def trim(s:str):
-    if s[0] == ' ':
-        s = s[1:]
-    if s[-1] == ' ':
-        s = s[:-1]
+a = [1,2,3]
+a.insert(3,5)
 
-    return s
-
-
-print(trim(' hjhjhbjhjh hjh  '))
+print(a)

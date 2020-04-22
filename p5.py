@@ -33,16 +33,8 @@ class Solution:
 
         return s[maxi:maxj]
 
-
     def isOK(self, s: str):
-        result = True
-        length = len(s)
-        for i in range(length//2):
-            if s[i] != s[len(s)-i-1]:
-                result = False
-                break
-
-        return result
+        return s == s[::-1]
 
 
 

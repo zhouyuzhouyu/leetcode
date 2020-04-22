@@ -1,4 +1,6 @@
 a = [1,2,3]
-a.insert(3,5)
+b = [1,2,3]
 
-print(a)
+print(a == b)
+
+print(sorted(a,reverse=True))

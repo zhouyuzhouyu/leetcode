@@ -42,12 +42,33 @@ cache.get(4);       // 返回  4
 class LRUCache:
 
     def __init__(self, capacity: int):
-
+        self.capacity = capacity
+        self.dicAll = {}
+        self.keyAll = []
 
     def get(self, key: int) -> int:
+        if key in self.dicAll:
+            self.keyAll.remove(key)
+            self.keyAll.append(key)
+            return self.dicAll[key]
+
+        else:
+            return -1
+
 
 
     def put(self, key: int, value: int) -> None:
+        if key in self.dicAll:
+            self.keyAll.remove(key)
+            self.keyAll.append(key)
+        else:
+            self.keyAll.append(key)
+
+        self.dicAll[key] = value
+
+        if len(self.keyAll) > self.capacity:
+            self.dicAll.pop(self.keyAll.pop(0))
+
 
 
 

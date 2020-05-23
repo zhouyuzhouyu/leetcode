@@ -52,28 +52,18 @@ class TreeNode:
 
 class Solution:
     def rob(self, root: TreeNode) -> int:
-        dicTmp = {}
+        return self.helper(root)[1]
 
-        def __rob(root: TreeNode, isFatherRobber: bool) -> int:
-            nonlocal dicTmp
-            if not root:
-                return 0
+    # helper函数返回一个节点为根的最大值 = [当前节点不参与计算的最大收益，当前节点的最大收益(参与/不参与)]
+    def helper(self, root):
+        if root is None:
+            return [0, 0]
+        left_amount = self.helper(root.left)
+        right_amount = self.helper(root.right)
+        withoutRoot = left_amount[1] + right_amount[1]
+        withRoot = root.val + left_amount[0] + right_amount[0]
+        return [withoutRoot, max(withRoot, withoutRoot)]
 
-            keyC = str(root) + str(isFatherRobber)
-            if keyC in dicTmp:
-                return dicTmp[keyC]
-
-            if isFatherRobber:
-                tmp = __rob(root.left, False) + __rob(root.right, False)
-                dicTmp[keyC] = tmp
-                return tmp
-            else:
-                tmp = max(root.val + __rob(root.left, True) + __rob(root.right, True),
-                                   __rob(root.left, False) + __rob(root.right, False))
-                dicTmp[keyC] = tmp
-                return tmp
-
-        return __rob(root, False)
 
 
 h = convertListToTree([3,2,3,None,3,None,1])

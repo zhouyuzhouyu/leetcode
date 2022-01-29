@@ -16,7 +16,6 @@ class Solution:
 
         s = 0
 
-
         while (l1New is not None) or (l2New is not None) or s != 0:
             l1V = 0
             l2V = 0

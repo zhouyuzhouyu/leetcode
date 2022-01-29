@@ -5,6 +5,7 @@ class Solution:
         hashMap = {}
 
         s = 6
+        s = 7
         for index, num in enumerate(nums):
             if hashMap.get(target - num) is not None:
                 return [hashMap.get(target - num), index]

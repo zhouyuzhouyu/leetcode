@@ -43,6 +43,7 @@ class Solution:
                 lNewTemp.next = ListNode(r)
                 lNewTemp = lNewTemp.next
 
+            s = 4
 
         return lNew
 

@@ -16,6 +16,10 @@ class Solution:
 
         s = 0
 
+        s = 1
+
+        s = 0
+
         while (l1New is not None) or (l2New is not None) or s != 0:
             l1V = 0
             l2V = 0
@@ -41,6 +45,7 @@ class Solution:
             else:
                 lNewTemp.next = ListNode(r)
                 lNewTemp = lNewTemp.next
+
 
         return lNew
 
